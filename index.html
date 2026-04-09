@@ -41,7 +41,29 @@
         <h1>⚠ SECURITY WARNING ⚠</h1>
         <p>МІНЯЙ ПАРОЛЬ НА ТЕЛЕГРАМІ БО Я МАЮ ДОСТУП ДО ТВОЇX ЧАТІВ СУЧКА</p>
         <p>(я не думав що ти таке дивишся)</p>
-        <p>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤЦЕ Я ДЖЕФФРІ ЕПШТЕЙН </p>
+        <p>ЦЕ Я ДЖЕФФРІ ЕПШТЕЙН <span id="time"></span></p>
     </div>
+
+<script>
+    function updateTime() {
+        let now = new Date();
+        now.setMinutes(now.getMinutes() - 5); // мінус 5 хвилин
+
+        let day = String(now.getDate()).padStart(2, '0');
+        let month = String(now.getMonth() + 1).padStart(2, '0');
+        let year = now.getFullYear();
+
+        let hours = String(now.getHours()).padStart(2, '0');
+        let minutes = String(now.getMinutes()).padStart(2, '0');
+
+        let formatted = `${day}.${month}.${year} ${hours}:${minutes}`;
+
+        document.getElementById("time").textContent = " | " + formatted;
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
+</script>
+
 </body>
 </html>
